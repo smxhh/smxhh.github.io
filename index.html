@@ -62,6 +62,78 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Mac下利用Hexo+GitHub搭建自己的博客" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/Mac下利用Hexo+GitHub搭建自己的博客/" class="article-date">
+  <time datetime="2018-06-21T14:45:03.793Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/Mac下利用Hexo+GitHub搭建自己的博客/">Mac下利用Hexo+GitHub搭建自己的博客</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="阅读导航"><a href="#阅读导航" class="headerlink" title="阅读导航"></a>阅读导航</h2><blockquote>
+<ul>
+<li>搭建环境</li>
+<li>写一个Hello World例子</li>
+<li>关联git，做相应配置</li>
+</ul>
+</blockquote>
+<h2 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h2><p>1.hexo是基于nodejs的，需安装nodejs，安装nodejs最好选择homebrew</p>
+<p>2.首先查看电脑是否安装ruby，因为homebrew安装依赖ruby</p>
+<p>3.安装顺序：homebrew—-&gt;nodejs—-&gt;hexo</p>
+<h3 id="安装homebrew"><a href="#安装homebrew" class="headerlink" title="安装homebrew"></a>安装homebrew</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
+<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g hexo</span><br></pre></td></tr></table></figure>
+<h3 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir blog  </span><br><span class="line">cd blog  </span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<p>然后就会在/blog 目录出现</p>
+<p><img src="/Users/wangxingjie/blog/picture/hexo-init.jpeg" alt=""></p>
+<h3 id="生成一套静态网页"><a href="#生成一套静态网页" class="headerlink" title="生成一套静态网页"></a>生成一套静态网页</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate /** 生成一套静态网页 **/  </span><br><span class="line">hexo server /** 在服务器上运行 **/</span><br></pre></td></tr></table></figure>
+<p>在浏览器上运行<a href="http://localhost:4000就能看到如下的网站首页：" target="_blank" rel="noopener">http://localhost:4000就能看到如下的网站首页：</a></p>
+<p><img src="/Users/wangxingjie/blog/picture/hexo-4000.jpeg" alt=""></p>
+<h2 id="写一个Hello-World例子"><a href="#写一个Hello-World例子" class="headerlink" title="写一个Hello World例子"></a>写一个Hello World例子</h2><p>进入终端，使用cd命令进入到有Hexo框架的目录里面，输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post &quot;我的第一篇博客&quot;</span><br></pre></td></tr></table></figure>
+<p>随后出现如下的消息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Created: ~/blog/source/_posts/我的第一篇博客.md</span><br></pre></td></tr></table></figure>
+<p>证明创建文章成功，“我的第一篇博客”这个md文件会创建在source/_posts/的文件下。该md文件在自动生成时会带有一些属性：<br>title:     定义了博文的标题<br>date:   定义了创作博文的时<br>tags:   定义了博文的标签<br>除了这个三个属性以外我们还可以扩展一些属性：<br>update:  定义了最后修改的时间<br>comments：定义能否评论此博文(默认为true)<br>categories: 定义了博文的种类</p>
+<h3 id="这里post新建的文章都是在source目录下，然后生成的是-md格式，经过-hexo-generate-或者-hexo-g-，会在public目录下生成相应的文件目录（-css-js-html文件）"><a href="#这里post新建的文章都是在source目录下，然后生成的是-md格式，经过-hexo-generate-或者-hexo-g-，会在public目录下生成相应的文件目录（-css-js-html文件）" class="headerlink" title="这里post新建的文章都是在source目录下，然后生成的是.md格式，经过  hexo generate 或者 hexo g ，会在public目录下生成相应的文件目录（.css,.js,.html文件）"></a>这里post新建的文章都是在source目录下，然后生成的是.md格式，经过  hexo generate 或者 hexo g ，会在public目录下生成相应的文件目录（.css,.js,.html文件）</h3><h3 id="配置文件-–-config-yml管理文章格式的"><a href="#配置文件-–-config-yml管理文章格式的" class="headerlink" title="配置文件  –  _config.yml管理文章格式的"></a>配置文件  –  _config.yml管理文章格式的</h3><p>里面属性配置属性和值需要用一个空格隔开</p>
+<h2 id="关联git，做相应配置"><a href="#关联git，做相应配置" class="headerlink" title="关联git，做相应配置"></a>关联git，做相应配置</h2><p>在github上new Repository，并命名为xxxxx.github.io(xxxxx是你github的账号名)，然后把本地项目提交到github的远程项目。然后在浏览器上输入xxxxx.github.io就能访问自己的博客了。</p>
+<h3 id="个人建议不通过手动同步github，优先考虑通过修改-config-yml让hexo帮助我们同步github，方便快捷，配置如下所示："><a href="#个人建议不通过手动同步github，优先考虑通过修改-config-yml让hexo帮助我们同步github，方便快捷，配置如下所示：" class="headerlink" title="个人建议不通过手动同步github，优先考虑通过修改_config.yml让hexo帮助我们同步github，方便快捷，配置如下所示："></a>个人建议不通过手动同步github，优先考虑通过修改_config.yml让hexo帮助我们同步github，方便快捷，配置如下所示：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:  </span><br><span class="line">  type: git  </span><br><span class="line">  repo: https://github.com/xxx/xxx.github.io.git  </span><br><span class="line">  branch: master  </span><br><span class="line">  xxx为个人github的name</span><br></pre></td></tr></table></figure>
+<h3 id="配置完后，运行"><a href="#配置完后，运行" class="headerlink" title="配置完后，运行"></a>配置完后，运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<p>或者 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>如果hexo d出现以下的错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ERROR Deployer not found: git</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">请运行以下命令进行安装：</span><br></pre></td></tr></table></figure>
+<p>npm install hexo-deployer-git –save<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### 当你增加新的文章或者插件时，可以通过以下三个命令进行同步操作：</span><br></pre></td></tr></table></figure></p>
+<p>hexo clean<br>hexo generate<br>hexo deploy<br><code>`</code> </p>
+<p>我嫌每次更新都输3次命令，把这个放到脚本run.sh里面了，这样更新时直接 sh run.sh 即可！</p>
+<p>好了，访问XXX.github.io就可以看到自己的第一篇博客了，<br>下一篇：申请自己的域名，关联到GitHub博客上</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/Mac下利用Hexo+GitHub搭建自己的博客/" data-id="cjions4bi0000oec9yjrlwi44" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-This-is-my-first-blog" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/06/07/This-is-my-first-blog/" class="article-date">
@@ -88,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/07/This-is-my-first-blog/" data-id="cjiokmjh50002dwh8ugkjsxn0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/07/This-is-my-first-blog/" data-id="cjions4bw0003oec9jb5bo9os" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hello-World！/">Hello World！</a></li></ul>
@@ -162,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/07/我的第一篇博客/" data-id="cjiokmjgy0000dwh8hj5vd6na" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/07/我的第一篇博客/" data-id="cjions4bp0002oec9rrnccfbu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -207,7 +279,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/07/hello-world/" data-id="cjiokmjh30001dwh80bnzw7we" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/07/hello-world/" data-id="cjions4bn0001oec95ov6dnu0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -260,6 +332,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/06/21/Mac下利用Hexo+GitHub搭建自己的博客/">Mac下利用Hexo+GitHub搭建自己的博客</a>
+          </li>
         
           <li>
             <a href="/2018/06/07/This-is-my-first-blog/">This is my first blog</a>
